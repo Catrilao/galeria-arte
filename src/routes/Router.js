@@ -6,7 +6,6 @@ import { Navigate } from "react-router-dom";
 const FullLayout = Loadable(
   lazy(() => import("../layouts/full-layout/MainLayout"))
 );
-
 /* ***End Layouts**** */
 
 const Error = Loadable(lazy(() => import("../pages/Error/404")));
@@ -14,14 +13,17 @@ const Error = Loadable(lazy(() => import("../pages/Error/404")));
 /* ****Pages***** */
 const HomePage = Loadable(lazy(() => import("../pages/Home/Home")));
 
-/* ****Routes***** */
+const ClientesPage = Loadable(lazy(() => import("../pages/Clientes/Clientes")));
 
+
+/* ****Routes***** */
 const Router = [
   {
     path: "/",
     element: <FullLayout />,
     children: [
       { path: "", exact: true, element: <HomePage /> },
+      { path: "clientes", exact: true, element: <ClientesPage /> },
       { path: "*", element: <Navigate to="/404" /> },
       { path: "404", element: <Error /> },
     ],
