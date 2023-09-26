@@ -4,7 +4,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AdbIcon from "@mui/icons-material/Adb";
 
 function Header() {
-  const pages = ["Products", "Pricing", "Blog"];
+  const pages = ["Inicio", "Compras", "nosotros", "artistas", "Contactos"];
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -25,9 +25,9 @@ function Header() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "black" }}>
-      <Container maxWidth="xl" sx={{ backgroundColor: "black" }}>
-        <Toolbar disableGutters sx={{ backgroundColor: "black" }}>
+    <AppBar position="static" sx={{ backgroundColor: "white" }}>
+      <Container maxWidth="xl" sx={{ backgroundColor: "white" }}>
+        <Toolbar disableGutters sx={{ backgroundColor: "white" }}>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
@@ -37,14 +37,15 @@ function Header() {
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
+              fontFamily: "Brush Script MT",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "black",
               textDecoration: "none",
+              fontSize: 30,
             }}
           >
-            LOGO
+            Galeria de arte
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -54,7 +55,7 @@ function Header() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              backgroundColorcolor="inherit"
             >
               <MenuIcon />
             </IconButton>
@@ -107,7 +108,7 @@ function Header() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "black", display: "block" }}
               >
                 {page}
               </Button>
@@ -119,7 +120,39 @@ function Header() {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
                 <Avatar
                   alt="Remy Sharp"
-                  src="https://www.universidadesonline.cl/logos/original/logo-universidad-de-valparaiso.png"
+                  src="https://cdn-icons-png.flaticon.com/128/6811/6811666.png"
+                />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: "45px" }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+          <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
+                <Avatar
+                  alt="Remy Sharp"
+                  src="https://cdn-icons-png.flaticon.com/128/2550/2550260.png"
                 />
               </IconButton>
             </Tooltip>
