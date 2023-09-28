@@ -15,6 +15,9 @@ const HomePage = Loadable(lazy(() => import("../pages/Home/Home")));
 
 const ClientesPage = Loadable(lazy(() => import("../pages/Clientes/Clientes")));
 
+const ObrasArtista = Loadable(lazy(() => import("../pages/ObrasArtista/ObrasArtista")));
+
+
 
 /* ****Routes***** */
 const Router = [
@@ -24,6 +27,7 @@ const Router = [
     children: [
       { path: "", exact: true, element: <HomePage /> },
       { path: "clientes", exact: true, element: <ClientesPage /> },
+      { path: "obrasArtista", exact: true, element: <ObrasArtista /> },
       { path: "*", element: <Navigate to="/404" /> },
       { path: "404", element: <Error /> },
     ],
