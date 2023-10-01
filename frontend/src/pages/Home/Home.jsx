@@ -1,7 +1,8 @@
 import React from "react";
 import PageContainer from "../../components/container/PageContainer";
 import { Box, Button, Typography } from "@mui/material";
-import ListarSuperHeroes from "./components/ListarSuperHeroes";
+import MostrarArte from "./components/MostrarArte";
+
 
 function Home() {
   return (
@@ -13,7 +14,7 @@ function Home() {
           alignItems: "center",
           width: "100%",
           backgroundImage:
-            "url(https://images6.alphacoders.com/705/705204.jpg)",
+            "url(https://cdn.pixabay.com/photo/2013/07/30/03/14/istanbul-168774_1280.jpg)",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPositionY: "18%",
@@ -33,12 +34,12 @@ function Home() {
             sx={{
               color: "white",
               textShadow: "2px 2px 4px #000000",
-              fontFamily: "monospace",
+              fontFamily: "Cochocib Script Latin Pro",
               fontWeight: 700,
               letterSpacing: ".3rem",
             }}
           >
-            Super Hero App
+            Galeria de arte
           </Typography>
           <Typography
             variant="h4"
@@ -46,24 +47,24 @@ function Home() {
             sx={{
               color: "white",
               textShadow: "2px 2px 4px #000000",
-              fontFamily: "monospace",
+              fontFamily: "Cochocib Script Latin Pro",
               fontWeight: 700,
               letterSpacing: ".3rem",
             }}
           >
-            Busca tu super heroe favorito
+            "Arte que inspira, creatividad que cautiva."
           </Typography>
           <Button
             variant="contained"
             color="primary"
             size="large"
             sx={{
-              fontFamily: "monospace",
+              fontFamily: "Cochocib Script Latin Pro",
               fontWeight: 700,
               letterSpacing: ".3rem",
             }}
           >
-            Comenzar!
+            Galería de Arte de temporada
           </Button>
         </Box>
       </Box>
@@ -78,16 +79,16 @@ function Home() {
           variant="h4"
           component="h2"
           sx={{
-            fontFamily: "monospace",
+            fontFamily: "Cochocib Script Latin Pro",
             fontWeight: 700,
             letterSpacing: ".3rem",
-            color: "white",
+            color: "black",
             textShadow: "2px 2px 4px #000000",
           }}
         >
-          Listado de super heroes
+          Cuadros destacados
         </Typography>
-        <ListarSuperHeroes />
+        <MostrarArte/>
       </Box>
     </PageContainer>
   );
