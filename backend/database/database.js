@@ -9,16 +9,13 @@ const __dirname = dirname(__filename);
 config({ path: join(__dirname, '../../.env') });
 
 
-const DEFAULT_CONFIG = {
-  HOST: 'localhost',
-  USER: 'root',
-  DATABASE: 'galeria_arte',
-  PASSWORD: '',
-}
-
-const connectionString = process.env.DATABASE_URL ?? DEFAULT_CONFIG
-
-const pool = mysql.createPool(connectionString)
+const pool = mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'galeria_arte',
+  
+});
 
 export class Consulta {
   getClientes = async (req, res) => {
