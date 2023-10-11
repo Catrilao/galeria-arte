@@ -1,10 +1,10 @@
 import cors from 'cors'
 
 const corsOptions = {
-  credentiasl: true,
+  credentials: true,
   optionSuccessStatus: 200,
-  methods: "GET, PUT, POST, DELETE",
+  methods: 'GET, PUT, POST, DELETE',
   origin: '*'
-};
+}
 
 export default cors(corsOptions)

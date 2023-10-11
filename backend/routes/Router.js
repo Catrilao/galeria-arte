@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { Consulta } from '../database/database.js'
+import { Consulta } from '../controllers/consultas.js'
 
 const consulta = new Consulta()
 const router = Router()

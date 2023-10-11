@@ -1,10 +1,11 @@
-import express from 'express'
-import router from './routes/Router.js'
-import cors from './middlewares/cors.js'
+import { fileURLToPath } from 'url'
+import { join, dirname } from 'path'
+import { config } from 'dotenv'
+import app from './app.js'
 
-const app = express()
+// Configuración para que funcione el import de dotenv
+config({ path: join(dirname(fileURLToPath(import.meta.url)), '../../.env')})
 
-app.use(cors)
-app.use(router)
+const PORT = process.env.PORT ?? 5000
 
-export default app
+app.listen(PORT, () => console.log(`Servidor funcionando en http://localhost:${PORT}`))
