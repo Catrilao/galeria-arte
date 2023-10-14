@@ -30,14 +30,14 @@ const Clientes = () => {
   const getImagenes = useCallback(async () => {
     try {
       const promesa = obras.map(async (obra) => {
-        const id = obra.id_obra        
+        const id = obra.id_obra
         const res = await fetch(`http://localhost:${PORT}/imagenes/${id}}`)
         const data = await res.json()
-        
+
         return data
       })
       const imagenes = await Promise.all(promesa)
-      
+
       setImagenes(imagenes)
     } catch {
       console.log('Error al obtener las imagenes')
@@ -57,21 +57,21 @@ const Clientes = () => {
     <div>
       <div>
         {clientes.map(cliente => (
-            <p key={cliente.id_cliente}>{cliente.nombre_cliente}</p>
+          <p key={cliente.id_cliente}>{cliente.nombre_cliente}</p>
         ))}
       </div>
       <div>
         {obras.map(obra => (
-            <p key={obra.id_obra}>{obra.titulo_obra}</p>
+          <p key={obra.id_obra}>{obra.titulo_obra}</p>
         ))}
       </div>
       <div>
         {imagenes.map(imagen => (
-            <p key={imagen.id_imagen}>{imagen.ruta}</p>
+          <p key={imagen.id_imagen}>{imagen.ruta}</p>
         ))}
       </div>
     </div>
   )
 }
 
-export default Clientes;
+export default Clientes

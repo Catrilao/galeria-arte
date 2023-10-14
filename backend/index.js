@@ -4,7 +4,7 @@ import { config } from 'dotenv'
 import app from './app.js'
 
 // Configuración para que funcione el import de dotenv
-config({ path: join(dirname(fileURLToPath(import.meta.url)), '../../.env')})
+config({ path: join(dirname(fileURLToPath(import.meta.url)), '../../.env') })
 
 const PORT = process.env.PORT ?? 5000
 

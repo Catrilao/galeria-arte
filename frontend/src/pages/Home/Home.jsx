@@ -1,66 +1,66 @@
-import React from "react";
-import PageContainer from "../../components/container/PageContainer";
-import { Box, Button, Typography } from "@mui/material";
-import ListarSuperHeroes from "./components/ListarSuperHeroes";
+import React from 'react'
+import PageContainer from '../../components/container/PageContainer'
+import { Box, Button, Typography } from '@mui/material'
+import ListarSuperHeroes from './components/ListarSuperHeroes'
 
-function Home() {
+function Home () {
   return (
-    <PageContainer title="Pagina inicio" description="aaaaaaaaaaaaaaaaa">
+    <PageContainer title='Pagina inicio' description='aaaaaaaaaaaaaaaaa'>
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100%',
           backgroundImage:
-            "url(https://images6.alphacoders.com/705/705204.jpg)",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPositionY: "18%",
+            'url(https://images6.alphacoders.com/705/705204.jpg)',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPositionY: '18%'
         }}
         minHeight={600}
       >
         <Box
-          display="flex"
-          flexDirection="column"
+          display='flex'
+          flexDirection='column'
           gap={2}
-          justifyContent={"center"}
-          alignItems="center"
+          justifyContent='center'
+          alignItems='center'
         >
           <Typography
-            variant="h1"
-            component="h1"
+            variant='h1'
+            component='h1'
             sx={{
-              color: "white",
-              textShadow: "2px 2px 4px #000000",
-              fontFamily: "monospace",
+              color: 'white',
+              textShadow: '2px 2px 4px #000000',
+              fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: '.3rem'
             }}
           >
             Super Hero App
           </Typography>
           <Typography
-            variant="h4"
-            component="h2"
+            variant='h4'
+            component='h2'
             sx={{
-              color: "white",
-              textShadow: "2px 2px 4px #000000",
-              fontFamily: "monospace",
+              color: 'white',
+              textShadow: '2px 2px 4px #000000',
+              fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: '.3rem'
             }}
           >
             Busca tu super heroe favorito
           </Typography>
           <Button
-            variant="contained"
-            color="primary"
-            size="large"
+            variant='contained'
+            color='primary'
+            size='large'
             sx={{
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: '.3rem'
             }}
           >
             Comenzar!
@@ -69,20 +69,20 @@ function Home() {
       </Box>
       <Box
         padding={10}
-        display="flex"
-        flexDirection="column"
+        display='flex'
+        flexDirection='column'
         gap={5}
-        alignItems="center"
+        alignItems='center'
       >
         <Typography
-          variant="h4"
-          component="h2"
+          variant='h4'
+          component='h2'
           sx={{
-            fontFamily: "monospace",
+            fontFamily: 'monospace',
             fontWeight: 700,
-            letterSpacing: ".3rem",
-            color: "white",
-            textShadow: "2px 2px 4px #000000",
+            letterSpacing: '.3rem',
+            color: 'white',
+            textShadow: '2px 2px 4px #000000'
           }}
         >
           Listado de super heroes
@@ -90,7 +90,7 @@ function Home() {
         <ListarSuperHeroes />
       </Box>
     </PageContainer>
-  );
+  )
 }
 
-export default Home;
+export default Home

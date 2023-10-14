@@ -6,12 +6,11 @@ import { join, dirname } from 'path'
 // Configuración para que funcione el import de dotenv
 config({ path: join(dirname(fileURLToPath(import.meta.url)), '../../.env') })
 
-
 const DEFAULT_CONFIG = {
-  HOST: 'localhost',
-  USER: 'root',
-  DATABASE: 'galeria_arte',
-  PASSWORD: '',
+  host: 'localhost',
+  user: 'root',
+  database: 'galeria_arte',
+  password: ''
 }
 
 const connectionString = process.env.DATABASE_URL || DEFAULT_CONFIG

@@ -1,30 +1,33 @@
 import pool from '../database/database.js'
 
 export class Consulta {
-  getClientes = async (req, res) => {
+  getClientes = async (_, res) => {
     try {
       const [clientes] = await pool.query('SELECT * FROM cliente;')
       res.json(clientes)
     } catch (error) {
-      this.manejarError(error, res)
+      console.log('Error al ejecutar la consulta:', error)
+      res.status(500).send('Error al ejecutar la consulta')
     }
   }
 
-  getArtistas = async (req, res) => {
+  getArtistas = async (_, res) => {
     try {
       const [artistas] = await pool.query('SELECT * FROM artista;')
       res.json(artistas)
     } catch (error) {
-      this.manejarError(error, res)
+      console.log('Error al ejecutar la consulta:', error)
+      res.status(500).send('Error al ejecutar la consulta')
     }
   }
 
-  getObras = async (req, res) => {
+  getObras = async (_, res) => {
     try {
       const [obra] = await pool.query('SELECT * FROM obra;')
       res.json(obra)
     } catch (error) {
-      this.manejarError(error, res)
+      console.log('Error al ejecutar la consulta:', error)
+      res.status(500).send('Error al ejecutar la consulta')
     }
   }
 
@@ -37,11 +40,12 @@ export class Consulta {
       )
       res.json(imagenes)
     } catch (error) {
-      this.manejarError(error, res)
+      console.log('Error al ejecutar la consulta:', error)
+      res.status(500).send('Error al ejecutar la consulta')
     }
   }
 
-  getObrasArtista = async (req, res) => {
+  getObrasArtista = async (_, res) => {
     try {
       const [datos] = await pool.query(
         'SELECT a.nombre_artista, o.titulo, o.anio_creacion, o.precio, o.anio_creacion, i.ruta ' +
@@ -52,14 +56,25 @@ export class Consulta {
       )
       res.json(datos)
     } catch (error) {
-      this.manejarError(error, res)
+      console.log('Error al ejecutar la consulta:', error)
+      res.status(500).send('Error al ejecutar la consulta')
     }
   }
 
-  manejarError = (error, res) => {
-    console.log('Error al ejecutar la consulta:', error)
-    res.status(500).send('Error al ejecutar la consulta')
+  createCliente = async (req, res) => {
+    console.log({ req })
+    console.log('req.body: ' + req.body)
+
+    const { nombre, correo, contrasenia } = req.body
+    try {
+      const [cliente] = await pool.query(
+        'INSERT INTO cliente (nombre_cliente, correo_cliente, contrasenia_cliente) VALUES (?, ?, ?);',
+        [nombre, correo, contrasenia]
+      )
+      res.json(cliente)
+    } catch (error) {
+      console.log('Error al ejecutar la consulta:', error)
+      res.status(500).send('Error al ejecutar la consulta')
+    }
   }
 }
-
-export default Consulta
