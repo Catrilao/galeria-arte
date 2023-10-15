@@ -62,16 +62,14 @@ export class Consulta {
   }
 
   createCliente = async (req, res) => {
-    console.log({ req })
-    console.log('req.body: ' + req.body)
-
     const { nombre, correo, contrasenia } = req.body
     try {
-      const [cliente] = await pool.query(
+      await pool.query(
         'INSERT INTO cliente (nombre_cliente, correo_cliente, contrasenia_cliente) VALUES (?, ?, ?);',
         [nombre, correo, contrasenia]
       )
-      res.json(cliente)
+
+      res.status(201).json('Cliente agregado correctamente')
     } catch (error) {
       console.log('Error al ejecutar la consulta:', error)
       res.status(500).send('Error al ejecutar la consulta')

@@ -1,20 +1,27 @@
 import mysql from 'mysql2/promise'
-import { config } from 'dotenv'
-import { fileURLToPath } from 'url'
-import { join, dirname } from 'path'
-
-// Configuración para que funcione el import de dotenv
-config({ path: join(dirname(fileURLToPath(import.meta.url)), '../../.env') })
+import CONFIGURACION_BD from '../constants/constants.js'
 
 const DEFAULT_CONFIG = {
-  host: 'localhost',
-  user: 'root',
-  database: 'galeria_arte',
-  password: ''
+  host: CONFIGURACION_BD.HOST,
+  user: CONFIGURACION_BD.USER,
+  database: CONFIGURACION_BD.DATABASE,
+  password: CONFIGURACION_BD.PASSWORD
 }
 
-const connectionString = process.env.DATABASE_URL || DEFAULT_CONFIG
+const connectionString = CONFIGURACION_BD.DATABASE_URL || DEFAULT_CONFIG
 
 const pool = mysql.createPool(connectionString)
+
+// Probamos la conexión
+
+pool.getConnection()
+  .then(conection => {
+    console.log('Conectado correctamente a la base de datos ' + CONFIGURACION_BD.DATABASE)
+    conection.release()
+  })
+  .catch(error => {
+    console.log('Error al conectar a la base de datos ' + CONFIGURACION_BD.DATABASE)
+    console.log(error)
+  })
 
 export default pool
