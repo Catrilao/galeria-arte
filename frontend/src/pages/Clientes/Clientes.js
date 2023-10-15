@@ -1,37 +1,36 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import { BACKEND_URL } from '../../constants/constants'
 
 const Clientes = () => {
-  const PORT = process.env.PORT || 5000
-
   const [clientes, setClientes] = useState([])
   const [obras, setObras] = useState([])
   const [imagenes, setImagenes] = useState([])
 
   const getClientes = useCallback(async () => {
     try {
-      const res = await fetch(`http://localhost:${PORT}/clientes`)
+      const res = await fetch(`${BACKEND_URL}/clientes`)
       const data = await res.json()
       setClientes(data)
     } catch {
       console.log('Error al obtener los clientes')
     }
-  }, [PORT])
+  }, [])
 
   const getObras = useCallback(async () => {
     try {
-      const res = await fetch(`http://localhost:${PORT}/obras`)
+      const res = await fetch(`${BACKEND_URL}/obras`)
       const data = await res.json()
       setObras(data)
     } catch {
       console.log('Error al obtener las obras')
     }
-  }, [PORT])
+  }, [])
 
   const getImagenes = useCallback(async () => {
     try {
       const promesa = obras.map(async (obra) => {
         const id = obra.id_obra
-        const res = await fetch(`http://localhost:${PORT}/imagenes/${id}}`)
+        const res = await fetch(`${BACKEND_URL}/imagenes/${id}}`)
         const data = await res.json()
 
         return data
@@ -42,7 +41,7 @@ const Clientes = () => {
     } catch {
       console.log('Error al obtener las imagenes')
     }
-  }, [PORT, obras])
+  }, [obras])
 
   useEffect(() => {
     getClientes()
