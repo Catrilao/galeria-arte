@@ -1,15 +1,7 @@
-<<<<<<< HEAD
 import React from 'react'
-import PageContainer from '../../components/container/PageContainer'
 import { Box, Button, Typography } from '@mui/material'
-import ListarSuperHeroes from './components/ListarSuperHeroes'
-=======
-import React from "react";
-import PageContainer from "../../components/container/PageContainer";
-import { Box, Button, Typography } from "@mui/material";
-import MostrarArte from "./components/MostrarArte";
-
->>>>>>> f6bdb80ffbf51419e591ea03c7be32e2abe2a56f
+import PageContainer from '../../components/container/PageContainer'
+import MostrarCuadros from './components/MostrarCuadros'
 
 function Home () {
   return (
@@ -20,18 +12,10 @@ function Home () {
           justifyContent: 'center',
           alignItems: 'center',
           width: '100%',
-          backgroundImage:
-<<<<<<< HEAD
-            'url(https://images6.alphacoders.com/705/705204.jpg)',
+          backgroundImage: 'url(https://images6.alphacoders.com/705/705204.jpg)',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPositionY: '18%'
-=======
-            "url(https://cdn.pixabay.com/photo/2013/07/30/03/14/istanbul-168774_1280.jpg)",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPositionY: "18%",
->>>>>>> f6bdb80ffbf51419e591ea03c7be32e2abe2a56f
         }}
         minHeight={600}
       >
@@ -46,15 +30,9 @@ function Home () {
             variant='h1'
             component='h1'
             sx={{
-<<<<<<< HEAD
               color: 'white',
               textShadow: '2px 2px 4px #000000',
               fontFamily: 'monospace',
-=======
-              color: "white",
-              textShadow: "2px 2px 4px #000000",
-              fontFamily: "Cochocib Script Latin Pro",
->>>>>>> f6bdb80ffbf51419e591ea03c7be32e2abe2a56f
               fontWeight: 700,
               letterSpacing: '.3rem'
             }}
@@ -65,15 +43,9 @@ function Home () {
             variant='h4'
             component='h2'
             sx={{
-<<<<<<< HEAD
               color: 'white',
               textShadow: '2px 2px 4px #000000',
               fontFamily: 'monospace',
-=======
-              color: "white",
-              textShadow: "2px 2px 4px #000000",
-              fontFamily: "Cochocib Script Latin Pro",
->>>>>>> f6bdb80ffbf51419e591ea03c7be32e2abe2a56f
               fontWeight: 700,
               letterSpacing: '.3rem'
             }}
@@ -85,11 +57,7 @@ function Home () {
             color='primary'
             size='large'
             sx={{
-<<<<<<< HEAD
               fontFamily: 'monospace',
-=======
-              fontFamily: "Cochocib Script Latin Pro",
->>>>>>> f6bdb80ffbf51419e591ea03c7be32e2abe2a56f
               fontWeight: 700,
               letterSpacing: '.3rem'
             }}
@@ -109,24 +77,16 @@ function Home () {
           variant='h4'
           component='h2'
           sx={{
-<<<<<<< HEAD
             fontFamily: 'monospace',
             fontWeight: 700,
             letterSpacing: '.3rem',
             color: 'white',
             textShadow: '2px 2px 4px #000000'
-=======
-            fontFamily: "Cochocib Script Latin Pro",
-            fontWeight: 700,
-            letterSpacing: ".3rem",
-            color: "black",
-            textShadow: "2px 2px 4px #000000",
->>>>>>> f6bdb80ffbf51419e591ea03c7be32e2abe2a56f
           }}
         >
           Cuadros destacados
         </Typography>
-        <MostrarArte/>
+        <MostrarCuadros/>
       </Box>
     </PageContainer>
   )

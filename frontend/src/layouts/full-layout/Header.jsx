@@ -3,19 +3,11 @@ import React, { useState } from 'react'
 import MenuIcon from '@mui/icons-material/Menu'
 import AdbIcon from '@mui/icons-material/Adb'
 
-<<<<<<< HEAD
 function Header () {
   const pages = ['Products', 'Pricing', 'Blog']
   const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
   const [anchorElNav, setAnchorElNav] = useState(null)
   const [anchorElUser, setAnchorElUser] = useState(null)
-=======
-function Header() {
-  const pages = ["Inicio", "Compras", "nosotros", "artistas", "Contactos", "Clientes"];
-  const settings = ["Profile", "Account", "Dashboard", "Logout"];
-  const [anchorElNav, setAnchorElNav] = useState(null);
-  const [anchorElUser, setAnchorElUser] = useState(null);
->>>>>>> f6bdb80ffbf51419e591ea03c7be32e2abe2a56f
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget)
@@ -33,17 +25,10 @@ function Header() {
   }
 
   return (
-<<<<<<< HEAD
     <AppBar position='static' sx={{ backgroundColor: 'black' }}>
       <Container maxWidth='xl' sx={{ backgroundColor: 'black' }}>
         <Toolbar disableGutters sx={{ backgroundColor: 'black' }}>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-=======
-    <AppBar position="static" sx={{ backgroundColor: "white" }}>
-      <Container maxWidth="xl" sx={{ backgroundColor: "white" }}>
-        <Toolbar disableGutters sx={{ backgroundColor: "white" }}>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
->>>>>>> f6bdb80ffbf51419e591ea03c7be32e2abe2a56f
           <Typography
             variant='h6'
             noWrap
@@ -51,22 +36,12 @@ function Header() {
             href='/'
             sx={{
               mr: 2,
-<<<<<<< HEAD
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none'
-=======
-              display: { xs: "none", md: "flex" },
-              fontFamily: "Cochocib Script Latin Pro",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "black",
-              textDecoration: "none",
-              fontSize: 30,
->>>>>>> f6bdb80ffbf51419e591ea03c7be32e2abe2a56f
             }}
           >
             Galeria de arte
@@ -132,11 +107,7 @@ function Header() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-<<<<<<< HEAD
                 sx={{ my: 2, color: 'white', display: 'block' }}
-=======
-                sx={{ my: 2, color: "black", display: "block" }}
->>>>>>> f6bdb80ffbf51419e591ea03c7be32e2abe2a56f
               >
                 {page}
               </Button>
@@ -147,45 +118,8 @@ function Header() {
             <Tooltip title='Open settings'>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
                 <Avatar
-<<<<<<< HEAD
                   alt='Remy Sharp'
                   src='https://www.universidadesonline.cl/logos/original/logo-universidad-de-valparaiso.png'
-=======
-                  alt="Remy Sharp"
-                  src="https://cdn-icons-png.flaticon.com/128/6811/6811666.png"
-                />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
-                <Avatar
-                  alt="Remy Sharp"
-                  src="https://cdn-icons-png.flaticon.com/128/2550/2550260.png"
->>>>>>> f6bdb80ffbf51419e591ea03c7be32e2abe2a56f
                 />
               </IconButton>
             </Tooltip>
@@ -218,9 +152,4 @@ function Header() {
   )
 }
 
-<<<<<<< HEAD
 export default Header
-=======
-export default Header;
-
->>>>>>> f6bdb80ffbf51419e591ea03c7be32e2abe2a56f
