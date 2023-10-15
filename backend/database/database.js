@@ -16,11 +16,11 @@ const pool = mysql.createPool(connectionString)
 
 pool.getConnection()
   .then(conection => {
-    console.log('Conectado correctamente a la base de datos ' + CONFIGURACION_BD.DATABASE)
+    console.log('Conectado correctamente a la base de datos')
     conection.release()
   })
   .catch(error => {
-    console.log('Error al conectar a la base de datos ' + CONFIGURACION_BD.DATABASE)
+    console.log('Error al conectar a la base de datos')
     console.log(error)
   })
 
