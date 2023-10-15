@@ -1,4 +1,4 @@
-### Mostrar Clientes
+node### Mostrar Clientes
 GET http://localhost:5000/clientes
 
 ### Mostrar Artistas
@@ -19,6 +19,6 @@ content-type: application/json
 
 {
   "nombre": "Juan",
-  "correo": "Perez",
+  "correo": "correo@gmail.com",
   "contrasenia": "1234"
 }
