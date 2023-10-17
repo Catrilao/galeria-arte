@@ -1,97 +1,65 @@
-<<<<<<< HEAD
-import React from 'react'
-import PageContainer from '../../components/container/PageContainer'
-import { Box, Button, Typography } from '@mui/material'
-import ListarSuperHeroes from './components/ListarSuperHeroes'
-=======
 import React from "react";
 import PageContainer from "../../components/container/PageContainer";
 import { Box, Button, Typography } from "@mui/material";
-import MostrarArte from "./components/MostrarArte";
-
->>>>>>> f6bdb80ffbf51419e591ea03c7be32e2abe2a56f
-
-function Home () {
+import MostrarCuadros from "./components/MostrarCuadros";
+function Home() {
   return (
-    <PageContainer title='Pagina inicio' description='aaaaaaaaaaaaaaaaa'>
+    <PageContainer title="Pagina inicio" description="aaaaaaaaaaaaaaaaa">
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '100%',
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
           backgroundImage:
-<<<<<<< HEAD
-            'url(https://images6.alphacoders.com/705/705204.jpg)',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundPositionY: '18%'
-=======
-            "url(https://cdn.pixabay.com/photo/2013/07/30/03/14/istanbul-168774_1280.jpg)",
+            "url(https://images6.alphacoders.com/705/705204.jpg)",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPositionY: "18%",
->>>>>>> f6bdb80ffbf51419e591ea03c7be32e2abe2a56f
         }}
         minHeight={600}
       >
         <Box
-          display='flex'
-          flexDirection='column'
+          display="flex"
+          flexDirection="column"
           gap={2}
-          justifyContent='center'
-          alignItems='center'
+          justifyContent="center"
+          alignItems="center"
         >
           <Typography
-            variant='h1'
-            component='h1'
+            variant="h1"
+            component="h1"
             sx={{
-<<<<<<< HEAD
-              color: 'white',
-              textShadow: '2px 2px 4px #000000',
-              fontFamily: 'monospace',
-=======
               color: "white",
               textShadow: "2px 2px 4px #000000",
-              fontFamily: "Cochocib Script Latin Pro",
->>>>>>> f6bdb80ffbf51419e591ea03c7be32e2abe2a56f
+              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: '.3rem'
+              letterSpacing: ".3rem",
             }}
           >
             Galeria de arte
           </Typography>
           <Typography
-            variant='h4'
-            component='h2'
+            variant="h4"
+            component="h2"
             sx={{
-<<<<<<< HEAD
-              color: 'white',
-              textShadow: '2px 2px 4px #000000',
-              fontFamily: 'monospace',
-=======
               color: "white",
               textShadow: "2px 2px 4px #000000",
-              fontFamily: "Cochocib Script Latin Pro",
->>>>>>> f6bdb80ffbf51419e591ea03c7be32e2abe2a56f
+              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: '.3rem'
+              letterSpacing: ".3rem",
             }}
           >
             "Arte que inspira, creatividad que cautiva."
           </Typography>
           <Button
-            variant='contained'
-            color='primary'
-            size='large'
+            variant="contained"
+            color="primary"
+            size="large"
             sx={{
-<<<<<<< HEAD
-              fontFamily: 'monospace',
-=======
-              fontFamily: "Cochocib Script Latin Pro",
->>>>>>> f6bdb80ffbf51419e591ea03c7be32e2abe2a56f
+              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: '.3rem'
+              letterSpacing: ".3rem",
             }}
           >
             Galería de Arte de temporada
@@ -100,36 +68,28 @@ function Home () {
       </Box>
       <Box
         padding={10}
-        display='flex'
-        flexDirection='column'
+        display="flex"
+        flexDirection="column"
         gap={5}
-        alignItems='center'
+        alignItems="center"
       >
         <Typography
-          variant='h4'
-          component='h2'
+          variant="h4"
+          component="h2"
           sx={{
-<<<<<<< HEAD
-            fontFamily: 'monospace',
-            fontWeight: 700,
-            letterSpacing: '.3rem',
-            color: 'white',
-            textShadow: '2px 2px 4px #000000'
-=======
-            fontFamily: "Cochocib Script Latin Pro",
+            fontFamily: "monospace",
             fontWeight: 700,
             letterSpacing: ".3rem",
-            color: "black",
+            color: "white",
             textShadow: "2px 2px 4px #000000",
->>>>>>> f6bdb80ffbf51419e591ea03c7be32e2abe2a56f
           }}
         >
           Cuadros destacados
         </Typography>
-        <MostrarArte/>
+        <MostrarCuadros />
       </Box>
     </PageContainer>
-  )
+  );
 }
 
-export default Home
+export default Home;
