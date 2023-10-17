@@ -1,7 +1,6 @@
 import React from "react";
 import imagenes from "../../../imgs/imagen.js";
 
-
 function MostrarCuadros(){
     
     return (
