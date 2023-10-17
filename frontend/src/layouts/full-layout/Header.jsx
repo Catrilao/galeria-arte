@@ -4,10 +4,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AdbIcon from "@mui/icons-material/Adb";
 
 function Header() {
-  const pages = ["Obras", "Pricing", "Blog"];
-  const settings = ["Profile", "Account", "Dashboard", "Logout"];
-  const [anchorElNav, setAnchorElNav] = useState(null);
-  const [anchorElUser, setAnchorElUser] = useState(null);
+  const pages = ['Products', 'Pricing', 'Blog']
+  const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
+  const [anchorElNav, setAnchorElNav] = useState(null)
+  const [anchorElUser, setAnchorElUser] = useState(null)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
