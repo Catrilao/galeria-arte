@@ -1,19 +1,18 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import { BACKEND_URL } from '../../constants/constants'
 
 const Clientes = () => {
-  const PORT = process.env.PORT || 5000
-
   const [datos, setDatos] = useState([])
 
   const getDatos = useCallback(async () => {
     try {
-      const res = await fetch(`http://localhost:${PORT}/obrasArtista`)
+      const res = await fetch(`${BACKEND_URL}/obrasArtista`)
       const data = await res.json()
       setDatos(data)
     } catch {
       console.log('Error al obtener los datos')
     }
-  }, [PORT])
+  }, [])
 
   useEffect(() => {
     getDatos()
@@ -34,4 +33,4 @@ const Clientes = () => {
   )
 }
 
-export default Clientes;
+export default Clientes
