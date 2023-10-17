@@ -1,10 +1,6 @@
-import express from 'express'
-import router from './routes/Router.js'
-import cors from './middlewares/cors.js'
+import CONFIGURACION_BD from './constants/constants.js'
+import app from './app.js'
 
-const app = express()
+const PORT = CONFIGURACION_BD.RUN_PORT || 5000
 
-app.use(cors)
-app.use(router)
-
-export default app
+app.listen(PORT, () => console.log(`Servidor funcionando en http://localhost:${PORT}`))
