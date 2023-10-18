@@ -1,15 +1,16 @@
 import { Router } from 'express'
-import { Consulta } from '../controllers/consultas.js'
+import { ConsultasController } from '../controllers/consultasController.js'
+import { Consultas } from '../models/mysql.js'
 
-const consulta = new Consulta()
 const router = Router()
+const consultasController = new ConsultasController({ Consultas })
 
-router.get('/clientes', consulta.getClientes)
-router.get('/artistas', consulta.getArtistas)
-router.get('/obras', consulta.getObras)
-router.get('/obrasArtista', consulta.getObrasArtista)
-router.get('/imagenes/:id', consulta.getImagenes)
+router.get('/clientes', consultasController.getClientes)
+router.get('/artistas', consultasController.getArtistas)
+router.get('/obras', consultasController.getObras)
+router.get('/obrasArtista', consultasController.getObrasArtista)
+router.get('/imagenes/:id', consultasController.getImagenes)
 
-router.post('/clientes', consulta.createCliente)
+router.post('/clientes', consultasController.createCliente)
 
 export default router

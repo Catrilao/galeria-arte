@@ -1,4 +1,4 @@
-node### Mostrar Clientes
+### Mostrar Clientes
 GET http://localhost:5000/clientes
 
 ### Mostrar Artistas

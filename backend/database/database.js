@@ -13,7 +13,6 @@ const connectionString = CONFIGURACION_BD.DATABASE_URL || DEFAULT_CONFIG
 const pool = mysql.createPool(connectionString)
 
 // Probamos la conexión
-
 pool.getConnection()
   .then(conection => {
     console.log('Conectado correctamente a la base de datos')

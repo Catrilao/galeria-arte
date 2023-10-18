@@ -16,10 +16,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AdbIcon from "@mui/icons-material/Adb";
 
 function Header() {
-  const pages = ["Products", "Pricing", "Blog"];
-  const settings = ["Profile", "Account", "Dashboard", "Logout"];
+  const pages = ["Inicio", "Artistas", "Contacto", "Crear cuenta"];
+  const settings = ["Perfil", "Mi Cuenta", "Dashboard", "Logout"];
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -36,10 +37,11 @@ function Header() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "black" }}>
-      <Container maxWidth="xl" sx={{ backgroundColor: "black" }}>
-        <Toolbar disableGutters sx={{ backgroundColor: "black" }}>
+    <AppBar position="static" sx={{ backgroundColor: "whitesmoke" }}>
+      <Container maxWidth="xl" sx={{ backgroundColor: "whitesmoke" }}>
+        <Toolbar disableGutters sx={{ backgroundColor: "whitesmoke" }}>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+
           <Typography
             variant="h6"
             noWrap
@@ -47,15 +49,16 @@ function Header() {
             href="/"
             sx={{
               mr: 2,
+
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
+              fontFamily: "Monserrat",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "black",
               textDecoration: "none",
             }}
           >
-            Galeria de arte
+            GALERIA DE ARTE
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -65,7 +68,7 @@ function Header() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="black"
             >
               <MenuIcon />
             </IconButton>
@@ -104,21 +107,21 @@ function Header() {
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
+              fontFamily: "Monserrat",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "black",
               textDecoration: "none",
             }}
           >
-            LOGO
+            GALERIA DE ARTE
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "black", display: "block" }}
               >
                 {page}
               </Button>
@@ -130,7 +133,7 @@ function Header() {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
                 <Avatar
                   alt="Remy Sharp"
-                  src="https://www.universidadesonline.cl/logos/original/logo-universidad-de-valparaiso.png"
+                  src="https://img2.freepng.es/20190221/gw/kisspng-computer-icons-user-profile-clip-art-portable-netw-c-svg-png-icon-free-download-389-86-onlineweb-5c6f7efd8fecb7.6156919015508108775895.jpg"
                 />
               </IconButton>
             </Tooltip>

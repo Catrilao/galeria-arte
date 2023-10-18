@@ -28,6 +28,7 @@ const Clientes = () => {
 
   const getImagenes = useCallback(async () => {
     try {
+      console.log({obras})
       const promesa = obras.map(async (obra) => {
         const id = obra.id_obra
         const res = await fetch(`${BACKEND_URL}/imagenes/${id}}`)
