@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   AppBar,
   Avatar,
@@ -11,12 +13,17 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import AdbIcon from "@mui/icons-material/Adb";
+import PageContainer from "../../components/container/PageContainer";
 
 function Header() {
-  const pages = ["Inicio", "Artistas", "Contacto", "Crear cuenta"];
+  const pages = [
+    { title: "Inicio", link: "https://xr3dsg-3000.csb.app" },
+    { title: "Artistas", link: "https://xr3dsg-3000.csb.app/Artistas" },
+    { title: "Contacto", link: "https://xr3dsg-3000.csb.app/Contacto" },
+    { title: "Crear cuenta", link: "https://xr3dsg-3000.csb.app/CrearCuenta" },
+  ];
   const settings = ["Perfil", "Mi Cuenta", "Dashboard", "Logout"];
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -24,6 +31,7 @@ function Header() {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -45,11 +53,10 @@ function Header() {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
+            component={Link}
+            to="/"
             sx={{
               mr: 2,
-
               display: { xs: "none", md: "flex" },
               fontFamily: "Monserrat",
               fontWeight: 700,
@@ -91,8 +98,10 @@ function Header() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.title} onClick={handleCloseNavMenu}>
+                  <Link to={page.link} style={{ textDecoration: "none" }}>
+                    <Typography textAlign="center">{page.title}</Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -101,8 +110,8 @@ function Header() {
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="/"
+            component={Link}
+            to="/"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -118,13 +127,18 @@ function Header() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "black", display: "block" }}
+              <Link
+                key={page.title}
+                to={page.link}
+                style={{ textDecoration: "none" }}
               >
-                {page}
-              </Button>
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "black", display: "block" }}
+                >
+                  {page.title}
+                </Button>
+              </Link>
             ))}
           </Box>
 
