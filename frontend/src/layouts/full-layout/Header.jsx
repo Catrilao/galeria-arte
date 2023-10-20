@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import MenuIcon from '@mui/icons-material/Menu'
 import AdbIcon from '@mui/icons-material/Adb'
 
-function Header () {
+function Header() {
   const pages = ['Products', 'Pricing', 'Blog']
   const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
   const [anchorElNav, setAnchorElNav] = useState(null)
