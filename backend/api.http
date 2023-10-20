@@ -18,7 +18,7 @@ POST http://localhost:5000/clientes
 content-type: application/json
 
 {
-  "nombre": "Juan",
-  "correo": "correo@gmail.com",
-  "contrasenia": "1234"
-}
+  "nombre": "Angel",
+  "correo": "angel@gmail.com",
+  "contrasenia": "password super segura"
+} 

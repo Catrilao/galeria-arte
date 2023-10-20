@@ -44,10 +44,9 @@ export class ConsultasController {
   }
 
   createCliente = async (req, res) => {
-    const datosCliente = req.body
-    const cliente = await this.Consultas.createCliente(datosCliente)
+    const cliente = await this.Consultas.createCliente({ datosCliente: req.body })
 
-    if (cliente) return res.json(cliente)
+    if (cliente) return res.status(201).json(cliente)
 
     res.status(404).send('No se pudo crear el cliente')
   }
