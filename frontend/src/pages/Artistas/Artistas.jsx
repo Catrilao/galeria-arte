@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 const Artistas = () => {
+  const [hoveredId, setHoveredId] = useState(null);
+
   const [artistasData, setArtistasData] = useState([]);
 
   useEffect(() => {
@@ -48,55 +50,50 @@ const Artistas = () => {
       alignItems: "center",
       justifyContent: "center",
       overflow: "hidden",
-      border: "5px solid #ddd",
+      border: "3px solid #ddd",
       padding: "20px",
       margin: "10px",
       minWidth: "250px",
       transition: "filter 0.3s ease-in-out",
       backgroundSize: "cover",
       backgroundPosition: "center",
-    },
-    artistName: {
-      fontSize: "30px",
-      fontFamily: "Monserrat",
-      textAlign: "center",
-      fontWeight: "bold",
-      zIndex: 1,
-      position: "relative",
-      color: "#000",
-    },
-    artistBio: {
-      marginTop: "20px",
-      fontFamily: "Monserrat",
-      fontSize: "18px",
-      textAlign: "center",
-      color: "#000",
+      color: "#FFF", // Change text color
     },
   };
 
   return (
     <div>
-      <h1 style={styles.title}>Artistas</h1>
+      <Typography variant="h4" style={styles.title}>
+        Artistas
+      </Typography>
       <div style={styles.artistContainer}>
         {artistasData.map((artista) => (
           <div
             key={artista.id_artista}
             className="card"
-            style={styles.artistCard}
-            onMouseOver={(e) => {
-              e.currentTarget.style.filter = "blur(3px)";
+            style={{
+              ...styles.artistCard,
+              backgroundImage: `url('${artista.imagen}')`,
+              filter:
+                artista.id_artista === hoveredId ? "brightness(40%)" : "none",
             }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.filter = "none";
-            }}
+            onMouseOver={() => setHoveredId(artista.id_artista)}
+            onMouseOut={() => setHoveredId(null)}
           >
-            <div className="card__content">
-              <p className="card__title" style={styles.artistName}>
+            <div
+              className="card__content"
+              style={{
+                visibility:
+                  artista.id_artista === hoveredId ? "visible" : "hidden",
+                transition: "visibility 0s, opacity 0.5s linear",
+              }}
+            >
+              <Typography variant="h3" style={{ fontWeight: "bold" }}>
                 {artista.nombre_artista}
-              </p>
-              <p className="card__description" style={styles.artistBio}>
+              </Typography>
+              <Typography variant="body1" style={{ fontWeight: "500" }}>
                 {artista.biografia}
-              </p>
+              </Typography>
             </div>
           </div>
         ))}
