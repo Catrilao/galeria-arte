@@ -15,14 +15,15 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import AdbIcon from "@mui/icons-material/Adb";
+import FRONTEND_URL from '../../constants'
 import PageContainer from "../../components/container/PageContainer";
 
 function Header() {
   const pages = [
-    { title: "Inicio", link: "https://xr3dsg-3000.csb.app" },
-    { title: "Artistas", link: "https://xr3dsg-3000.csb.app/Artistas" },
-    { title: "Contacto", link: "https://xr3dsg-3000.csb.app/Contacto" },
-    { title: "Crear cuenta", link: "https://xr3dsg-3000.csb.app/CrearCuenta" },
+    { title: "Inicio", link: `${FRONTEND_URL}` },
+    { title: "Artistas", link: `${FRONTEND_URL}/Artistas` },
+    { title: "Contacto", link: `${FRONTEND_URL}/Contacto` },
+    { title: "Crear cuenta", link: `${FRONTEND_URL}/CrearCuenta` },
   ];
   const settings = ["Perfil", "Mi Cuenta", "Dashboard", "Logout"];
   const [anchorElNav, setAnchorElNav] = useState(null);
