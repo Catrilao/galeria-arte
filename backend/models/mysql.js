@@ -1,5 +1,6 @@
+import { randomUUID } from 'crypto'
 import pool from '../database/database.js'
-
+import hash from '../hash/hash.js'
 export class Consultas {
   static async getClientes () {
     try {
@@ -44,11 +45,11 @@ export class Consultas {
   static async getObrasArtista () {
     try {
       const [datos] = await pool.query(
-        'SELECT a.nombre_artista, o.titulo, o.anio_creacion, o.precio, o.anio_creacion, i.ruta ' +
-        'FROM artista a ' +
-        'JOIN artista_obra ao ON a.id_artista = ao.id_artista ' +
-        'JOIN obra o ON o.id_obra = ao.id_obra ' +
-        'JOIN imagen i ON i.id_obra = o.id_obra;'
+      `SELECT a.nombre, o.titulo, o.anio_creacion, o.precio, o.anio_creacion, i.ruta
+        FROM artista a
+        JOIN artista_obra ao ON a.id = ao.id_artista
+        JOIN obra o ON o.id = ao.id_obra
+        JOIN imagen i ON i.id_imagen = o.id;`
       )
       return datos
     } catch (error) {
@@ -57,13 +58,27 @@ export class Consultas {
   }
 
   static async createCliente ({ datosCliente }) {
+    const id = randomUUID()
     const { nombre, correo, contrasenia } = datosCliente
+    const hashedPassword = await hash(contrasenia)
+
+    console.log({
+      id,
+      nombre,
+      correo,
+      contrasenia: hashedPassword,
+      largoId: id.length,
+      largoPass: hashedPassword.length
+    })
+
     try {
       await pool.query(
-        'INSERT INTO cliente (nombre_cliente, correo_cliente, contrasenia_cliente) VALUES (?, ?, ?);',
-        [nombre, correo, contrasenia]
+        'INSERT INTO cliente (id, nombre, correo, contrasenia) VALUES (?, ?, ?, ?);',
+        [id, nombre, correo, hashedPassword]
       )
-      return 'Cliente agregado correctamente'
+
+      const [cliente] = await pool.query(`SELECT * FROM cliente WHERE id = '${id}';`)
+      return cliente
     } catch (error) {
       throw new Error('Error al ejecutar la consulta:', error)
     }

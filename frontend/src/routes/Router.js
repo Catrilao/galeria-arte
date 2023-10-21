@@ -15,9 +15,13 @@ const HomePage = Loadable(lazy(() => import("../pages/Home/Home")));
 
 const ClientesPage = Loadable(lazy(() => import("../pages/Clientes/Clientes")));
 
-const ObrasArtista = Loadable(lazy(() => import("../pages/ObrasArtista/ObrasArtista")),
-);
+const ObrasArtista = Loadable(lazy(() => import("../pages/ObrasArtista/ObrasArtista")));
+
 const ArtistasPage = Loadable(lazy(() => import("../pages/Artistas/Artistas")));
+
+const LoginForm = Loadable(lazy(() => import('../pages/Home/components/LoginForm/LoginForm')));
+
+
 
 /* ****Routes***** */
 const Router = [
@@ -25,14 +29,16 @@ const Router = [
     path: "/",
     element: <FullLayout />,
     children: [
-      { path: "", exact: true, element: <HomePage /> },
-      { path: "clientes", exact: true, element: <ClientesPage /> },
-      { path: "obrasArtista", exact: true, element: <ObrasArtista /> },
-      { path: "artistas", exact: true, element: <ArtistasPage /> },
-      { path: "*", element: <Navigate to="/404" /> },
-      { path: "404", element: <Error /> },
-    ],
-  },
-];
+      { path: '', exact: true, element: <HomePage /> },
+      { path: 'clientes', exact: true, element: <ClientesPage /> },
+      { path: 'artistas', exact: true, element: <ArtistasPage />},
+      { path: 'obrasArtista', exact: true, element: <ObrasArtista /> },
+      { path: 'login', exact: true, element: <LoginForm /> }, // Ruta agregada
+      { path: '*', element: <Navigate to='/404' /> },
+      { path: '404', element: <Error /> }
+    ]
+  }
+]
 
-export default Router;
+
+export default Router

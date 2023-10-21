@@ -1,96 +1,74 @@
-import React from "react";
-import PageContainer from "../../components/container/PageContainer";
-import { Box, Button, Typography } from "@mui/material";
-import MostrarCuadros from "./components/MostrarCuadros";
+import React from 'react'
+import { Box, Typography } from '@mui/material'
+import PageContainer from '../../components/container/PageContainer'
+import MostrarCuadros from './components/MostrarCuadros'
+
 function Home() {
   return (
-    <PageContainer title="Pagina inicio" description="aaaaaaaaaaaaaaaaa">
+    <PageContainer title='Pagina inicio' description=''>
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
-          backgroundImage:
-            "url(https://images6.alphacoders.com/705/705204.jpg)",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPositionY: "18%",
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100%',
+          backgroundImage: 'url(https://images.pexels.com/photos/69903/pexels-photo-69903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPositionY: '10%'
         }}
         minHeight={600}
       >
         <Box
-          display="flex"
-          flexDirection="column"
+          display='flex'
+          flexDirection='column'
           gap={2}
-          justifyContent="center"
-          alignItems="center"
+          justifyContent='center'
+          alignItems='center'
         >
           <Typography
-            variant="h1"
-            component="h1"
+            variant='h1'
+            component='h1'
             sx={{
-              color: "white",
-              textShadow: "2px 2px 4px #000000",
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
+              color: 'white',
+              textShadow: '10px 2px 4px #000000',
+              fontFamily: 'monospace',
+              fontWeight: 1000,
+              letterSpacing: '.4rem'
             }}
           >
             Galeria de arte
           </Typography>
           <Typography
-            variant="h4"
-            component="h2"
+            variant='h4'
+            component='h2'
             sx={{
-              color: "white",
-              textShadow: "2px 2px 4px #000000",
-              fontFamily: "monospace",
+              color: 'white',
+              textShadow: '20px 2px 4px #000000',
+              fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: '.3rem'
             }}
           >
             "Arte que inspira, creatividad que cautiva."
           </Typography>
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            sx={{
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-            }}
-          >
-            Galería de Arte de temporada
-          </Button>
+
         </Box>
       </Box>
 
       <Box
-        padding={10}
-        display="flex"
-        flexDirection="column"
+        padding={1}
+        display='flex'
+        flexDirection='column'
         gap={5}
-        alignItems="center"
+        alignItems='center'
       >
-        <Typography
-          variant="h4"
-          component="h2"
-          sx={{
-            fontFamily: "monospace",
-            fontWeight: 700,
-            letterSpacing: ".3rem",
-            color: "white",
-            textShadow: "2px 2px 4px #000000",
-          }}
-        >
-          Cuadros destacados
-        </Typography>
+
         <MostrarCuadros />
       </Box>
+
     </PageContainer>
-  );
+  )
 }
 
-export default Home;
+export default Home
