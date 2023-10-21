@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import AdbIcon from "@mui/icons-material/Adb";
-import FRONTEND_URL from '../../constants/constants.js'
+import { FRONTEND_URL } from '../../constants/constants.js'
 import PageContainer from "../../components/container/PageContainer";
 
 function Header() {
