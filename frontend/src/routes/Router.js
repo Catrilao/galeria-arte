@@ -31,6 +31,7 @@ const Router = [
     children: [
       { path: '', exact: true, element: <HomePage /> },
       { path: 'clientes', exact: true, element: <ClientesPage /> },
+      { path: 'artistas', exact: true, element: <ArtistasPage />},
       { path: 'obrasArtista', exact: true, element: <ObrasArtista /> },
       { path: 'login', exact: true, element: <LoginForm /> }, // Ruta agregada
       { path: '*', element: <Navigate to='/404' /> },
