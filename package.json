@@ -17,8 +17,5 @@
   },
   "eslintConfig": {
     "extends": "./node_modules/standard/eslintrc.json"
-  },
-  "dependencies": {
-    "framer-motion": "^10.16.4"
   }
 }

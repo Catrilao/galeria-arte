@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import AdbIcon from "@mui/icons-material/Adb";
+<<<<<<< HEAD
 
 function Header() {
   const pages = [
@@ -22,6 +23,17 @@ function Header() {
     { title: "Artistas", link: "https://xr3dsg-3000.csb.app/Artistas" },
     { title: "Contacto", link: "https://xr3dsg-3000.csb.app/Contacto" },
     { title: "Crear cuenta", link: "https://xr3dsg-3000.csb.app/Login" },
+=======
+import { FRONTEND_URL } from '../../constants/constants.js'
+import PageContainer from "../../components/container/PageContainer";
+
+function Header() {
+  const pages = [
+    { title: "Inicio", link: `${FRONTEND_URL}` },
+    { title: "Artistas", link: `${FRONTEND_URL}/Artistas` },
+    { title: "Contacto", link: `${FRONTEND_URL}/Contacto` },
+    { title: "Crear cuenta", link: `${FRONTEND_URL}/CrearCuenta` },
+>>>>>>> 9eed82162b617616845bdf9fbf1ab8370f7eb036
   ];
   const settings = ["Perfil", "Mi Cuenta", "Dashboard", "Logout"];
   const [anchorElNav, setAnchorElNav] = useState(null);
