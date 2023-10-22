@@ -15,20 +15,17 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import AdbIcon from "@mui/icons-material/Adb";
-import { FRONTEND_URL } from '../../constants/constants.js'
-import PageContainer from "../../components/container/PageContainer";
 
 function Header() {
   const pages = [
-    { title: "Inicio", link: `${FRONTEND_URL}` },
-    { title: "Artistas", link: `${FRONTEND_URL}/Artistas` },
-    { title: "Contacto", link: `${FRONTEND_URL}/Contacto` },
-    { title: "Crear cuenta", link: `${FRONTEND_URL}/CrearCuenta` },
+    { title: "Inicio", link: "https://xr3dsg-3000.csb.app" },
+    { title: "Artistas", link: "https://xr3dsg-3000.csb.app/Artistas" },
+    { title: "Contacto", link: "https://xr3dsg-3000.csb.app/Contacto" },
+    { title: "Crear cuenta", link: "https://xr3dsg-3000.csb.app/Login" },
   ];
   const settings = ["Perfil", "Mi Cuenta", "Dashboard", "Logout"];
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
-
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -51,7 +48,6 @@ function Header() {
       <Container maxWidth="xl" sx={{ backgroundColor: "whitesmoke" }}>
         <Toolbar disableGutters sx={{ backgroundColor: "whitesmoke" }}>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-
           <Typography
             variant="h6"
             noWrap
@@ -69,7 +65,6 @@ function Header() {
           >
             GALERIA DE ARTE
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -143,7 +138,6 @@ function Header() {
               </Link>
             ))}
           </Box>
-
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
