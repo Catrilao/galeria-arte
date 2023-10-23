@@ -18,10 +18,10 @@ import AdbIcon from "@mui/icons-material/Adb";
 
 function Header() {
   const pages = [
-    { title: "Inicio", link: "https://xr3dsg-3000.csb.app" },
-    { title: "Artistas", link: "https://xr3dsg-3000.csb.app/Artistas" },
-    { title: "Contacto", link: "https://xr3dsg-3000.csb.app/Contacto" },
-    { title: "Crear cuenta", link: "https://xr3dsg-3000.csb.app/Login" },
+    { title: "Inicio", link:  `/` },
+    { title: "Artistas", link: `/Artistas` },
+    { title: "Contacto", link: `/Contacto` },
+    { title: "Crear cuenta", link: `/Login` }
   ];
   const settings = ["Perfil", "Mi Cuenta", "Dashboard", "Logout"];
   const [anchorElNav, setAnchorElNav] = useState(null);
