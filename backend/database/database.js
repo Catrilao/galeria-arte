@@ -12,13 +12,6 @@ const connectionString = CONFIGURACION_BD.DATABASE_URL || DEFAULT_CONFIG
 
 const pool = mysql.createPool(connectionString)
 
-console.log({
-  host: CONFIGURACION_BD.HOST,
-  user: CONFIGURACION_BD.USER,
-  database: CONFIGURACION_BD.DATABASE,
-  password: CONFIGURACION_BD.PASSWORD
-})
-
 // Probamos la conexión
 pool.getConnection()
   .then(conection => {
