@@ -18,7 +18,7 @@ const imagenes = [
     titulo: "",
     url: "https://c4.wallpaperflare.com/wallpaper/867/910/377/arabes-arte-barco-pinturas-wallpaper-preview.jpg",
     price: "$1000000",
-    Autor: "Osvaldo Queupán",
+    Autor: "Angel Lopez",
   },
 
   {
@@ -26,21 +26,21 @@ const imagenes = [
     titulo: "",
     url: "https://c4.wallpaperflare.com/wallpaper/994/249/308/acantilado-mar-mujeres-oleo-wallpaper-preview.jpg",
     price: "$1000000",
-    Autor: "Osvaldo Queupán",
+    Autor: "Angel Lopez",
   },
   {
     id: 5,
     titulo: "",
     url: "https://c4.wallpaperflare.com/wallpaper/307/305/86/arte-cisne-lago-mujer-wallpaper-preview.jpg",
     price: "$1000000",
-    Autor: "Osvaldo Queupán",
+    Autor: "Celia Garrigues",
   },
   {
     id: 6,
     titulo: "",
     url: "https://c4.wallpaperflare.com/wallpaper/867/910/377/arabes-arte-barco-pinturas-wallpaper-preview.jpg",
     price: "$1000000",
-    Autor: "Osvaldo Queupán",
+    Autor: "Fernanda Fuentes",
   },
 ];
 
