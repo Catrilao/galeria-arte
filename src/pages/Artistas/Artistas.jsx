@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, IconButton, Typography } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { Link } from "react-router-dom";
 
 const Artistas = () => {
   const [hoveredId, setHoveredId] = useState(null);
@@ -135,8 +136,34 @@ const Artistas = () => {
       </Box>
       <Box
         sx={{
+          position: "fixed",
+          bottom: 20,
+          left: "5%",
+          transform: "translateX(-50%)",
+        }}
+      >
+        <Link to="/SubirObra" style={{ textDecoration: "none" }}>
+          <IconButton
+            style={{
+              backgroundColor: "#f2f2f2",
+              color: "#4c4c4c",
+              border: "none",
+              borderRadius: "50%",
+              fontSize: "1.5rem",
+              cursor: "pointer",
+              width: "40px",
+              height: "40px",
+            }}
+          >
+            +
+          </IconButton>
+        </Link>
+      </Box>
+      <Box
+        sx={{
           display: "flex",
           justifyContent: "center",
+          color: "#4c4c4c",
           position: "fixed",
           bottom: 20,
           right: "5%",

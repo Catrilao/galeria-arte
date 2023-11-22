@@ -18,10 +18,11 @@ import AdbIcon from "@mui/icons-material/Adb";
 
 function Header() {
   const pages = [
-    { title: "Inicio", link:  `/` },
+    { title: "Inicio", link: `/` },
     { title: "Artistas", link: `/Artistas` },
     { title: "Contacto", link: `/Contacto` },
-    { title: "Crear cuenta", link: `/Login` }
+    { title: "Crear cuenta", link: `/Login` },
+    { title: "Subir obra", link: `/SubirObra` }, // rubrica agregada
   ];
   const settings = ["Perfil", "Mi Cuenta", "Dashboard", "Logout"];
   const [anchorElNav, setAnchorElNav] = useState(null);
