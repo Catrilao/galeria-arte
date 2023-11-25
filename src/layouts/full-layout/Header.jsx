@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   AppBar,
@@ -17,15 +17,40 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AdbIcon from "@mui/icons-material/Adb";
 
 function Header() {
-  const pages = [
-    { title: "Inicio", link:  `/` },
-    { title: "Artistas", link: `/Artistas` },
-    { title: "Contacto", link: `/Contacto` },
-    { title: "Crear cuenta", link: `/Login` }
-  ];
-  const settings = ["Perfil", "Mi Cuenta", "Dashboard", "Logout"];
+  const [pages, setPages] = useState([]);
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Nuevo estado para la autenticación del usuario
+
+  useEffect(() => {
+    const token = window.localStorage.getItem("token");
+    setIsLoggedIn(!!token); // Actualiza isLoggedIn basado en la presencia del token
+    // ... configuración de páginas ...
+  }, []);
+
+  const logout = () => {
+    window.localStorage.clear();
+    window.location.reload();
+  };
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const isPersonLogin = window.localStorage.getItem("token") ? true : false;
+    setPages(
+      isPersonLogin
+        ? [
+            { title: "Inicio", link: `/` },
+            { title: "Artistas", link: `/Artistas` },
+            { title: "Contacto", link: `/Contacto` },
+          ]
+        : [
+            { title: "Inicio", link: `/` },
+            { title: "Artistas", link: `/Artistas` },
+            { title: "Contacto", link: `/Contacto` },
+            { title: "Ingresar", link: `/Login` },
+          ]
+    );
+  }, []);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -138,38 +163,41 @@ function Header() {
               </Link>
             ))}
           </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
-                <Avatar
-                  alt="Remy Sharp"
-                  src="https://img2.freepng.es/20190221/gw/kisspng-computer-icons-user-profile-clip-art-portable-netw-c-svg-png-icon-free-download-389-86-onlineweb-5c6f7efd8fecb7.6156919015508108775895.jpg"
-                />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+          {isLoggedIn && (
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
+                  <Avatar
+                    alt="Remy Sharp"
+                    src="https://img2.freepng.es/20190221/gw/kisspng-computer-icons-user-profile-clip-art-portable-netw-c-svg-png-icon-free-download-389-86-onlineweb-5c6f7efd8fecb7.6156919015508108775895.jpg"
+                  />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                <MenuItem onClick={() => {}}>
+                  <Typography textAlign="center">Editar Pefil</Typography>
                 </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+                <MenuItem onClick={logout}>
+                  <Typography textAlign="center">Cerrar sesión</Typography>
+                </MenuItem>
+              </Menu>
+            </Box>
+          )}
         </Toolbar>
       </Container>
     </AppBar>

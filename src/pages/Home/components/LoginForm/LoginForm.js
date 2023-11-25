@@ -10,7 +10,8 @@ function LoginForm() {
   const [repeatpass, setRepeatpass] = useState("");
   const [loginError, setLoginError] = useState("");
   const [registerError, setRegisterError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [btningresar, setbtnIngresar] = useState(false);
+  const [btnregistar, setbtnRegistrar] = useState(false);
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -21,37 +22,87 @@ function LoginForm() {
       return;
     }
 
-    setLoading(true);
-    console.log("Datos enviados:", { username, password });
+    try {
+      setbtnIngresar(true);
+      const loginUrl = 'https://galeria-arte-api.onrender.com/sql/clientes/login';
 
-    setTimeout(() => {
-      setLoading(false);
-      console.log("Autenticación exitosa");
-    }, 2000);
+      const response = await fetch(loginUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ correo_cliente: username, contrasenia_cliente: password }),
+      });
+
+      if (!response.ok) {
+
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Error en la autenticación');
+      }
+
+      const responseData = await response.json();
+      console.log("Autenticación exitosa", responseData);
+
+      if (responseData.token) {
+        window.localStorage.setItem("token", responseData.token);
+        window.location.href = '/';
+      } else {
+        throw new Error("No se recibió el token");
+      }
+    } catch (error) {
+      setLoginError(error.message);
+    } finally {
+      setbtnIngresar(false);
+    }
   };
+
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     setRegisterError("");
-
     if (!createuser || !ingcorreo || !passnew || !repeatpass) {
       setRegisterError("Todos los campos son obligatorios");
       return;
     }
 
-    setLoading(true);
-    console.log("Datos enviados:", {
-      createuser,
-      ingcorreo,
-      passnew,
-      repeatpass,
-    });
+    if (passnew !== repeatpass) {
+      setRegisterError("Las contraseñas no coinciden");
+      return;
+    }
 
-    setTimeout(() => {
-      setLoading(false);
-      console.log("Registro exitoso");
-    }, 2000);
+    const userData = {
+      nombre: createuser,
+      correo: ingcorreo,
+      contrasenia: passnew,
+    };
+
+    try {
+      setbtnRegistrar(true);
+
+      const response = await fetch('https://galeria-arte-api.onrender.com/clientes', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Error al registrar el cliente');
+      }
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+
+    } catch (error) {
+      setRegisterError(error.message);
+    } finally {
+      setbtnRegistrar(false);
+    }
   };
+
 
   return (
     <div className="login-form-container">
@@ -66,7 +117,7 @@ function LoginForm() {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                disabled={loading}
+                disabled={btningresar}
               />
             </label>
             <label>
@@ -76,11 +127,11 @@ function LoginForm() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                disabled={loading}
+                disabled={btningresar}
               />
             </label>
-            <button className="submit-btn" type="submit" disabled={loading}>
-              {loading ? "Cargando..." : "Acceder"}
+            <button className="submit-btn" type="submit" disabled={btningresar}>
+              {btningresar ? "Cargando..." : "Acceder"}
             </button>
             {loginError && <p className="error-msg">{loginError}</p>}
           </form>
@@ -95,7 +146,7 @@ function LoginForm() {
                 type="text"
                 value={createuser}
                 onChange={(e) => setCreateuser(e.target.value)}
-                disabled={loading}
+                disabled={btnregistar}
               />
             </label>
             <label>
@@ -105,7 +156,7 @@ function LoginForm() {
                 type="text"
                 value={ingcorreo}
                 onChange={(e) => setIngcorreo(e.target.value)}
-                disabled={loading}
+                disabled={btnregistar}
               />
             </label>
             <label>
@@ -115,7 +166,7 @@ function LoginForm() {
                 type="password"
                 value={passnew}
                 onChange={(e) => setPassnew(e.target.value)}
-                disabled={loading}
+                disabled={btnregistar}
               />
             </label>
             <label>
@@ -125,11 +176,11 @@ function LoginForm() {
                 type="password"
                 value={repeatpass}
                 onChange={(e) => setRepeatpass(e.target.value)}
-                disabled={loading}
+                disabled={btnregistar}
               />
             </label>
-            <button className="submit-btn" type="submit" disabled={loading}>
-              {loading ? "Cargando..." : "Registrar cuenta"}
+            <button className="submit-btn" type="submit" disabled={btnregistar}>
+              {btnregistar ? "Cargando..." : "Registrar cuenta"}
             </button>
             {registerError && <p className="error-msg">{registerError}</p>}
           </form>
