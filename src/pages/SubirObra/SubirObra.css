@@ -80,32 +80,58 @@
 .input__description {
   font-size: 0.875rem;
   margin-top: 0.5rem;
+  text-align: center;
   color: #000000;
 }
 
-.button--primary {
+.buttons-container {
+  display: flex;
+  justify-content: center; /* Align buttons at the center horizontally */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.button {
+  /* Common button styles */
+  align-items: center;
+  justify-content: center;
   background-color: #28a745;
   color: #fff;
   padding: 0.75rem 1.25rem;
   border-radius: 0.3rem;
   font-size: 0.875rem;
   font-weight: 700;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  display: flex;
-  top: calc(90% + 20px);
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 0 5px; /* Add some space between buttons */
+  flex-grow: 1;
+  box-sizing: border-box;
 }
 
 .button--primary:hover {
   background-color: #006489;
 }
 
+.button--cancel {
+  background-color: #006489;
+}
+
+/* Additional styles for centering buttons in smaller screens */
+@media (max-width: 768px) {
+  .buttons-container {
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+    align-items: center; /* Center-align buttons vertically */
+  }
+
+  .button {
+    width: 100%; /* Make buttons full width */
+    margin: 5px 0; /* Adjust margin between buttons */
+  }
+}
+
 .success-message {
   padding: 1rem 1.5rem;
   display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
   justify-content: center;
   text-align: center;
   font-weight: lighter;

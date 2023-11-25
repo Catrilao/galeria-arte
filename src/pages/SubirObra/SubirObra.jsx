@@ -4,10 +4,15 @@ import { Link } from "react-router-dom";
 
 const SubirObra = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [canceled, setCanceled] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setSubmitted(true);
+  };
+
+  const handleCancel = () => {
+    setCanceled(true);
   };
 
   return (
@@ -16,7 +21,7 @@ const SubirObra = () => {
         <div className="modal__header">
           <span className="modal__title">Nueva Obra</span>
         </div>
-        {!submitted ? (
+        {!submitted && !canceled ? (
           <div className="modal__body">
             <form onSubmit={handleSubmit} encType="multipart/form-data">
               <div className="input">
@@ -47,14 +52,28 @@ const SubirObra = () => {
               </div>
               <div className="modal__footer">
                 <button className="button button--primary" type="submit">
-                  Subir obra
+                  Subir
+                </button>
+                <button
+                  className="button button--cancel"
+                  type="button"
+                  onClick={handleCancel}
+                >
+                  Cancelar
                 </button>
               </div>
             </form>
           </div>
-        ) : (
+        ) : submitted ? (
           <div className="success-message">
             Su solicitud ha sido registrada
+            <Link to="/" className="link-to-form">
+              Inicio
+            </Link>
+          </div>
+        ) : (
+          <div className="abandon-message">
+            Su solicitud ha sido cancelada
             <Link to="/" className="link-to-form">
               Inicio
             </Link>
