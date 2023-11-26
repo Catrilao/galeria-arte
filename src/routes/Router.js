@@ -36,41 +36,24 @@ const Router = [
     path: "/",
     element: <FullLayout />,
     children: [
-<<<<<<< HEAD
       { path: "", exact: true, element: <HomePage /> },
       { path: "clientes", exact: true, element: <ClientesPage /> },
       { path: "artistas", exact: true, element: <ArtistasPage /> },
       { path: "obrasArtista", exact: true, element: <ObrasArtista /> },
       { path: "login", exact: true, element: <LoginForm /> }, // Ruta agregada
-      { path: "subirObra", exact: true, element: <SubirObra /> }, // Ruta agregada
       { path: "*", element: <Navigate to="/404" /> },
       { path: "404", element: <Error /> },
     ],
-  },
-];
-
-export default Router;
-=======
-      { path: '', exact: true, element: <HomePage /> },
-      { path: 'clientes', exact: true, element: <ClientesPage /> },
-      { path: 'artistas', exact: true, element: <ArtistasPage /> },
-      { path: 'obrasArtista', exact: true, element: <ObrasArtista /> },
-      { path: 'login', exact: true, element: <LoginForm /> }, // Ruta agregada
-      { path: '*', element: <Navigate to='/404' /> },
-      { path: '404', element: <Error /> }
-    ]
   },
   {
     path: "/login",
     element: <LoginLayout />,
     children: [
-      { path: '', exact: true, element: <LoginForm /> },
-      { path: '*', element: <Navigate to='/404' /> },
-      { path: '404', element: <Navigate to='/404' /> }
-    ]
-  }
-]
+      { path: "", exact: true, element: <LoginForm /> },
+      { path: "*", element: <Navigate to="/404" /> },
+      { path: "404", element: <Navigate to="/404" /> },
+    ],
+  },
+];
 
-
-export default Router
->>>>>>> 143962520855b7be25e1e034b3291dc99cb2a15f
+export default Router;
