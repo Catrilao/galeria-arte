@@ -8,7 +8,7 @@ const Artistas = () => {
   const [artistasData, setArtistasData] = useState([]);
 
   useEffect(() => {
-    fetch("https://galeria-arte-api.onrender.com/Artistas")
+    fetch("http://localhost:5000/Artistas")
       .then((response) => response.json())
       .then((data) => {
         setArtistasData(data);
