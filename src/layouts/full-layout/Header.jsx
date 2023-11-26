@@ -17,7 +17,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AdbIcon from "@mui/icons-material/Adb";
 
 function Header() {
-  const settings = ["Perfil", "Mi Cuenta", "Dashboard", "Logout"];
   const [pages, setPages] = useState([]);
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -41,16 +40,13 @@ function Header() {
       isPersonLogin
         ? [
             { title: "Inicio", link: `/` },
-            { title: "Artistas", link: `/Artistas` },
-            { title: "Contacto", link: `/Contacto` },
+            { title: "Mis obras", link: `/Artistas` },
           ]
         : [
             { title: "Inicio", link: `/` },
             { title: "Artistas", link: `/Artistas` },
-            { title: "Contacto", link: `/Contacto` },
             { title: "Ingresar", link: `/Login` },
-            { title: "Subir obra", link: `/SubirObra` },
-          ],
+          ]
     );
   }, []);
 

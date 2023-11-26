@@ -6,9 +6,30 @@ const SubirObra = () => {
   const [submitted, setSubmitted] = useState(false);
   const [canceled, setCanceled] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setSubmitted(true);
+    const formData = new FormData(event.target);
+    const imageUrl = formData.get("image_url");
+    const name = formData.get("name");
+    const description = formData.get("description");
+
+    try {
+      const response = await fetch("http://localhost:3000/upload", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ imageUrl, name, description }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        throw new Error("Error al subir la obra");
+      }
+    } catch (error) {
+      console.error("Error al subir la obra:", error);
+    }
   };
 
   const handleCancel = () => {

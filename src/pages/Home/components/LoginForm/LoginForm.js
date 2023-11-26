@@ -10,8 +10,10 @@ function LoginForm() {
   const [repeatpass, setRepeatpass] = useState("");
   const [loginError, setLoginError] = useState("");
   const [registerError, setRegisterError] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [btningresar, setbtnIngresar] = useState(false);
   const [btnregistar, setbtnRegistrar] = useState(false);
+
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -24,14 +26,14 @@ function LoginForm() {
 
     try {
       setbtnIngresar(true);
-      const loginUrl = 'https://galeria-arte-api.onrender.com/sql/clientes/login';
+      const loginUrl = 'https://galeria-arte-api-develoment.onrender.com/sql/artistas/login';
 
       const response = await fetch(loginUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ correo_cliente: username, contrasenia_cliente: password }),
+        body: JSON.stringify({ correo_artista: username, contrasenia_artista: password }),
       });
 
       if (!response.ok) {
@@ -60,7 +62,9 @@ function LoginForm() {
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     setRegisterError("");
-    if (!createuser || !ingcorreo || !passnew || !repeatpass) {
+
+    // Validación de los campos, incluyendo la nueva URL de la imagen
+    if (!createuser || !ingcorreo || !passnew || !repeatpass || !imageUrl) {
       setRegisterError("Todos los campos son obligatorios");
       return;
     }
@@ -69,17 +73,18 @@ function LoginForm() {
       setRegisterError("Las contraseñas no coinciden");
       return;
     }
-
     const userData = {
       nombre: createuser,
       correo: ingcorreo,
       contrasenia: passnew,
+      imagen: imageUrl, // Añadir la URL de la imagen
     };
+
 
     try {
       setbtnRegistrar(true);
 
-      const response = await fetch('https://galeria-arte-api.onrender.com/clientes', {
+      const response = await fetch('https://galeria-arte-api-develoment.onrender.com/artistas', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -179,6 +184,17 @@ function LoginForm() {
                 disabled={btnregistar}
               />
             </label>
+            <label>
+            URL de la Imagen:
+            <input
+              className="input-field"
+              type="text"
+              value={imageUrl}
+              onChange={(e) => setImageUrl(e.target.value)}
+              disabled={btnregistar}
+            />
+          </label>
+
             <button className="submit-btn" type="submit" disabled={btnregistar}>
               {btnregistar ? "Cargando..." : "Registrar cuenta"}
             </button>
