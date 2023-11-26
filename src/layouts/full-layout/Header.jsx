@@ -17,18 +17,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AdbIcon from "@mui/icons-material/Adb";
 
 function Header() {
-<<<<<<< HEAD
-  const pages = [
-    { title: "Inicio", link: `/` },
-    { title: "Artistas", link: `/Artistas` },
-    { title: "Contacto", link: `/Contacto` },
-    { title: "Crear cuenta", link: `/Login` },
-    { title: "Subir obra", link: `/SubirObra` }, // rubrica agregada
-  ];
   const settings = ["Perfil", "Mi Cuenta", "Dashboard", "Logout"];
-=======
   const [pages, setPages] = useState([]);
->>>>>>> 143962520855b7be25e1e034b3291dc99cb2a15f
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Nuevo estado para la autenticación del usuario
@@ -59,7 +49,7 @@ function Header() {
             { title: "Artistas", link: `/Artistas` },
             { title: "Contacto", link: `/Contacto` },
             { title: "Ingresar", link: `/Login` },
-          ]
+          ],
     );
   }, []);
 
