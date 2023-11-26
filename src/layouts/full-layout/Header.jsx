@@ -49,6 +49,7 @@ function Header() {
             { title: "Artistas", link: `/Artistas` },
             { title: "Contacto", link: `/Contacto` },
             { title: "Ingresar", link: `/Login` },
+            { title: "Subir obra", link: `/SubirObra` },
           ],
     );
   }, []);
