@@ -21,11 +21,21 @@ function Header() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Nuevo estado para la autenticación del usuario
+  const [userImage, setUserImage] = useState(""); // Estado para la imagen del usuario
+
+  useEffect(() => {
+    const storedUserImage = window.localStorage.getItem("userImage");
+    if (storedUserImage) {
+      setUserImage(storedUserImage);
+    }
+  }, []);
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     const token = window.localStorage.getItem("token");
-    setIsLoggedIn(!!token); // Actualiza isLoggedIn basado en la presencia del token
-    // ... configuración de páginas ...
+    const storedUsername = window.localStorage.getItem("username");
+    setIsLoggedIn(!!token);
+    setUserName(storedUsername || "");
   }, []);
 
   const logout = () => {
@@ -41,6 +51,7 @@ function Header() {
         ? [
             { title: "Inicio", link: `/` },
             { title: "Mis obras", link: `/Artistas` },
+            { title: "Subir obra", link: `/SubirObra` },
           ]
         : [
             { title: "Inicio", link: `/` },
@@ -162,12 +173,15 @@ function Header() {
             ))}
           </Box>
           {isLoggedIn && (
-            <Box sx={{ flexGrow: 0 }}>
+            <Box sx={{ flexGrow: 0, display: "flex", alignItems: "center" }}>
+              <Typography sx={{ mr: 2, color: "black" }}>
+                ¡HOLA! {userName} {/* Aquí se muestra el nombre del usuario */}
+              </Typography>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
                   <Avatar
-                    alt="Remy Sharp"
-                    src="https://img2.freepng.es/20190221/gw/kisspng-computer-icons-user-profile-clip-art-portable-netw-c-svg-png-icon-free-download-389-86-onlineweb-5c6f7efd8fecb7.6156919015508108775895.jpg"
+                    alt={userName || "Usuario"}
+                    src={userImage || "https://via.placeholder.com/150"} // Usa la imagen del usuario o una por defecto
                   />
                 </IconButton>
               </Tooltip>
@@ -188,7 +202,7 @@ function Header() {
                 onClose={handleCloseUserMenu}
               >
                 <MenuItem onClick={() => {}}>
-                  <Typography textAlign="center">Editar Pefil</Typography>
+                  <Typography textAlign="center">Editar Perfil</Typography>
                 </MenuItem>
                 <MenuItem onClick={logout}>
                   <Typography textAlign="center">Cerrar sesión</Typography>

@@ -61,3 +61,9 @@ h2 {
     color: red;
     margin-top: 10px;
 }
+
+.success-msg{
+    color: rgb(68, 156, 10);
+    margin-top: 10px;
+
+}

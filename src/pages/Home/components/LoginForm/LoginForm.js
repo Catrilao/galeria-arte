@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./LoginForm.css";
 
 function LoginForm() {
+  const [registerSuccess, setRegisterSuccess] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [createuser, setCreateuser] = useState("");
@@ -18,35 +19,35 @@ function LoginForm() {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     setLoginError("");
-
+  
     if (!username || !password) {
       setLoginError("Todos los campos son obligatorios");
       return;
     }
-
+  
     try {
       setbtnIngresar(true);
       const loginUrl = 'https://galeria-arte-api-develoment.onrender.com/sql/artistas/login';
-
+  
       const response = await fetch(loginUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ correo_artista: username, contrasenia_artista: password }),
+        body: JSON.stringify({ correo_artista: username, contrasenia_artista: password, imagen: imageUrl }),
       });
-
+  
       if (!response.ok) {
-
         const errorData = await response.json();
         throw new Error(errorData.message || 'Error en la autenticación');
       }
-
+  
       const responseData = await response.json();
       console.log("Autenticación exitosa", responseData);
-
+  
       if (responseData.token) {
         window.localStorage.setItem("token", responseData.token);
+        window.localStorage.setItem("username", responseData.username || username);
         window.location.href = '/';
       } else {
         throw new Error("No se recibió el token");
@@ -57,7 +58,7 @@ function LoginForm() {
       setbtnIngresar(false);
     }
   };
-
+  
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
@@ -77,7 +78,7 @@ function LoginForm() {
       nombre: createuser,
       correo: ingcorreo,
       contrasenia: passnew,
-      imagen: imageUrl, // Añadir la URL de la imagen
+      imagen: imageUrl, 
     };
 
 
@@ -95,6 +96,24 @@ function LoginForm() {
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Error al registrar el cliente');
+        
+      }
+      
+      else {
+        // Asumiendo que la respuesta incluye algún identificador de usuario o nombre
+        const responseData = await response.json();
+        window.localStorage.setItem("userImage", imageUrl); // Guarda la URL de la imagen
+        window.localStorage.setItem("username", responseData.username || createuser); // Guarda el nombre del usuario
+        // ... más lógica, como redireccionamiento o actualización de la interfaz ...
+      }
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Error al registrar el cliente');
+      } else {
+        alert("Registro exitoso. Por favor inicie sesión.");
+        setRegisterSuccess("Registro exitoso. Por favor inicie sesión.");
+        // Puedes agregar lógica adicional aquí si es necesario
       }
 
       setTimeout(() => {
@@ -199,6 +218,7 @@ function LoginForm() {
               {btnregistar ? "Cargando..." : "Registrar cuenta"}
             </button>
             {registerError && <p className="error-msg">{registerError}</p>}
+            {registerSuccess && <p className="success-msg">{registerSuccess}</p>}
           </form>
         </div>
       </div>
