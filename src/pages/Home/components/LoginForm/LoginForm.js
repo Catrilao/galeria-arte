@@ -27,7 +27,7 @@ function LoginForm() {
   
     try {
       setbtnIngresar(true);
-      const loginUrl = 'https://galeria-arte-api-develoment.onrender.com/sql/artistas/login';
+      const loginUrl = 'https://galeria-arte-api.onrender.com/nosql/artistas/login';
   
       const response = await fetch(loginUrl, {
         method: 'POST',
@@ -47,6 +47,7 @@ function LoginForm() {
   
       if (responseData.token) {
         window.localStorage.setItem("token", responseData.token);
+        window.localStorage.setItem("id", responseData.id);
         window.localStorage.setItem("username", responseData.username || username);
         window.location.href = '/';
       } else {
@@ -75,9 +76,9 @@ function LoginForm() {
       return;
     }
     const userData = {
-      nombre: createuser,
-      correo: ingcorreo,
-      contrasenia: passnew,
+      nombre_artista: createuser,
+      correo_artista: ingcorreo,
+      contrasenia_artista: passnew,
       imagen: imageUrl, 
     };
 
@@ -85,7 +86,7 @@ function LoginForm() {
     try {
       setbtnRegistrar(true);
 
-      const response = await fetch('https://galeria-arte-api-develoment.onrender.com/artistas', {
+      const response = await fetch('https://galeria-arte-api.onrender.com/nosql/artistas', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
