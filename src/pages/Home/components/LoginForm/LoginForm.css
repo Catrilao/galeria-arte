@@ -8,7 +8,7 @@
 
 .login-form {
     max-width: 800px;
-    /* Ajustar según necesidad */
+
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -60,4 +60,10 @@ h2 {
 .error-msg {
     color: red;
     margin-top: 10px;
+}
+
+.success-msg{
+    color: rgb(68, 156, 10);
+    margin-top: 10px;
+
 }

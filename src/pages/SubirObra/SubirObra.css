@@ -1,0 +1,162 @@
+.container {
+  position: static;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container.submitted .modal__body {
+  display: none;
+}
+
+.container.submitted .success-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #000000;
+}
+
+.modal__header {
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__body {
+  padding: 1rem 1rem;
+}
+
+.modal__footer {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.modal__title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #000000;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+}
+
+.input + .input {
+  margin-top: 1.75rem;
+}
+
+.input__label {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #000000;
+}
+
+.input__field {
+  display: block;
+  outline: 2px solid black;
+  margin-top: 0.5rem;
+  border: 0.5px solid var(--border-color);
+  padding: 0.75rem;
+  border-radius: 5px;
+  color: #000000;
+}
+
+.input__field--textarea {
+  min-height: 100px;
+  max-width: 100%;
+  border-radius: 5px;
+  color: #000000;
+}
+
+.input__description {
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  color: #000000;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.button {
+  align-items: center;
+  justify-content: center;
+  background-color: #28a745;
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.3rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin: 0 5px;
+  flex-grow: 1;
+  box-sizing: border-box;
+  min-width: 150px;
+}
+
+.button--primary:hover {
+  background-color: #006489;
+}
+
+.button--cancel {
+  background-color: #006489;
+}
+
+.button--cancel:hover {
+  background-color: #28a745;
+}
+
+@media (max-width: 768px) {
+  .buttons-container {
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+    align-items: center; /* Center-align buttons vertically */
+  }
+
+  .button {
+    width: 100%;
+    margin: 10px 0; /* Adjust margin between buttons */
+  }
+}
+
+.success-message {
+  padding: 1rem 1.5rem;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: center;
+  text-align: center;
+  font-weight: lighter;
+  font-size: medium;
+  color: #000000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.link-to-form {
+  position: absolute;
+  display: flex;
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  top: calc(50% + 5rem);
+  left: 50%;
+  transform: translateX(-50%);
+}
