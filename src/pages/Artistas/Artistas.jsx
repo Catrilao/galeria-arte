@@ -7,7 +7,7 @@ const Artistas = () => {
   const [artistasData, setArtistasData] = useState([]);
 
   useEffect(() => {
-    fetch("https://galeria-arte-api.onrender.com/Artistas")
+    fetch("https://galeria-arte-api.onrender.com/sql/artistas")
       .then((response) => response.json())
       .then((data) => {
         setArtistasData(data);
@@ -15,7 +15,7 @@ const Artistas = () => {
       .catch((error) => {
         console.error(
           "Se produjo un error al recuperar los datos de los artistas:",
-          error,
+          error
         );
       });
   }, []);
@@ -135,8 +135,17 @@ const Artistas = () => {
       </Box>
       <Box
         sx={{
+          position: "fixed",
+          bottom: 20,
+          left: "5%",
+          transform: "translateX(-50%)",
+        }}
+      ></Box>
+      <Box
+        sx={{
           display: "flex",
           justifyContent: "center",
+          color: "#4c4c4c",
           position: "fixed",
           bottom: 20,
           right: "5%",
