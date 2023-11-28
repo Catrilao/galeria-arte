@@ -9,17 +9,19 @@ const SubirObra = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
+    console.log('Form data:', Array.from(formData.entries()));
     const imageUrl = formData.get("image_url");
     const name = formData.get("name");
     const description = formData.get("description");
+    const id = window.localStorage.getItem("id");
 
     try {
-      const response = await fetch("http://localhost:3000/upload", {
+        const response = await fetch("https://galeria-arte-api.onrender.com/nosql/obras", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ imageUrl, name, description }),
+        body: JSON.stringify({ titulo: name, descripcion_obra: description, imagenes: imageUrl, id }),
       });
 
       if (response.ok) {
@@ -61,14 +63,14 @@ const SubirObra = () => {
               </div>
               <div className="input">
                 <label className="input__label">Nombre obra</label>
-                <input className="input__field" type="text" />
+                <input className="input__field" name="name" type="text" />
                 <p className="input__description">
                   El título debe contener un máximo de 32 caracteres
                 </p>
               </div>
               <div className="input">
                 <label className="input__label">Descripción</label>
-                <textarea className="input__field input__field--textarea"></textarea>
+                <textarea className="input__field input__field--textarea" name="description"></textarea>
                 <p className="input__description"></p>
               </div>
               <div className="modal__footer">

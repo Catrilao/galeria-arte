@@ -30,6 +30,9 @@ const LoginForm = Loadable(
 
 const SubirObra = Loadable(lazy(() => import("../pages/SubirObra/SubirObra")));
 
+const MisObras = Loadable(lazy(() => import("../pages/MisObras/MisObras")));
+
+
 /* ****Routes***** */
 const Router = [
   {
@@ -42,6 +45,7 @@ const Router = [
       { path: "obrasArtista", exact: true, element: <ObrasArtista /> },
       { path: "login", exact: true, element: <LoginForm /> }, // Ruta agregada
       { path: "subirObra", exact: true, element: <SubirObra /> }, // Ruta agregada
+      { path: "misObras", exact: true, element: <MisObras /> }, // Ruta agregada
       { path: "*", element: <Navigate to="/404" /> },
       { path: "404", element: <Error /> },
     ],

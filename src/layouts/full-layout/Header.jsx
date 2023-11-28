@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   AppBar,
   Avatar,
@@ -38,8 +38,11 @@ function Header() {
     setUserName(storedUsername || "");
   }, []);
 
+  const navigate = useNavigate();
+
   const logout = () => {
     window.localStorage.clear();
+    navigate("/");
     window.location.reload();
   };
 
@@ -50,7 +53,8 @@ function Header() {
       isPersonLogin
         ? [
             { title: "Inicio", link: `/` },
-            { title: "Mis obras", link: `/Artistas` },
+            { title: "Mis obras", link: `/MisObras` },
+            { title: "Artistas", link: `/Artistas` },
             { title: "Subir obra", link: `/SubirObra` },
           ]
         : [
